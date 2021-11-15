@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head th:include="_template :: head"></head>
+<body>
+
+    <form th:action="@{/user}" method="post" th:object="${user}">
+        <label for="name" class="hide">Nome</label>
+        <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="nome"
+                th:field="*{name}"
+                th:classappend="${#fields.hasErrors('name')}?invalid"
+                autocomplete="off"
+        />
+        <span class="error" th:errors="*{name}"></span>
+
+        <label for="email" class="hide">E-mail</label>
+        <input
+                type="email"
+                name="email"
+                placeholder="e-mail"
+                id="email"
+                th:field="*{email}"
+                th:classappend="${#fields.hasErrors('email')}?invalid"
+                autocomplete="off"
+        />
+        <span class="error"  th:errors="*{email}"></span>
+
+        <label for="password" class="hide">Senha</label>
+        <input
+                type="password"
+                name="password"
+                placeholder="senha"
+                id="password"
+                th:field="*{password}"
+                th:classappend="${#fields.hasErrors('password')}?invalid"
+        />
+        <span class="error"  th:errors="*{password}"></span>
+
+        <label for="description" class="hide" id="descriptionLabel">Descrição</label>
+        <textarea
+                name="description"
+                placeholder="descrição"
+                id="description"
+                th:field="*{description}"
+                th:classappend="${#fields.hasErrors('description')}?invalid"
+        />
+        <span class="error"  th:errors="*{description}"></span>
+
+
+        <div class="action-buttons">
+            <a href="/" class="button">Cancelar</a>
+            <button class="button primary">Salvar</button>
+        </div>
+
+    </form>
+
+    <div>
+        <input id="btnTipoCadastro" onclick="cadastroInstituicao()" value="Cadastro de Instituição" type="button"/>
+    </div>
+
+    <script>
+        function cadastroInstituicao(){
+            var descText = document.getElementById("description");
+            var descLabel = document.getElementById("descriptionLabel");
+            var botao = document.getElementById("btnTipoCadastro");
+            if(descText.style.display === "none"){
+                descText.style.display = "flex";
+                descLabel.style.display = "flex";
+            }else{
+                descText.style.display = "none";
+                descLabel.style.display = "none";
+            }
+            if (botao.value==="Cadastro de Instituição"){
+                botao.value = "Cadastro de Usuário";
+            }else{
+                botao.value = "Cadastro de Instituição";
+            }
+        }
+    </script>
+
+</body>
+</html>
