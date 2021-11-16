@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head th:include="_template :: head"></head>
+<body>
+    <header th:include="_template :: header"></header>
+    <nav th:include="_template :: menu('instituicao')"></nav>
+
+    <main>
+        <div th:each="instituicao : ${users}">
+            <div>
+                <h4 th:text="${instituicao.name}"></h4>
+                <p th:text="${instituicao.description}"></p>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

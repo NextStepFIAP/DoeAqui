@@ -23,8 +23,8 @@ public class UserService {
     private MessageSource message;
 
     public ModelAndView index() {
-        ModelAndView modelAndView = new ModelAndView("users");
-        List<User> users = findAll();
+        ModelAndView modelAndView = new ModelAndView("instituicao");
+        List<User> users = findAllInstituicao();
         modelAndView.addObject("users", users);
         System.out.println(users);
         return modelAndView;
@@ -36,15 +36,15 @@ public class UserService {
 
 
     public String save(User user, BindingResult result, RedirectAttributes redirect) {
-//        if(result.hasErrors()) return "user-form";
-//        user.setPassword(
-//                AuthenticationService
-//                        .getPasswordEncoder()
-//                        .encode(user.getPassword())
-//        );
-//        System.out.println(user);
+        if(result.hasErrors()) return "user-form";
+        user.setPassword(
+                AuthenticationService
+                        .getPasswordEncoder()
+                        .encode(user.getPassword())
+        );
+        System.out.println(user);
 
-        //redirect.addFlashAttribute("message", message.getMessage("newuser.success", null, LocaleContextHolder.getLocale()));
+//        redirect.addFlashAttribute("message", message.getMessage("newuser.success", null, LocaleContextHolder.getLocale()));
         repository.save(user);
         return "redirect:/";
     }
@@ -55,8 +55,8 @@ public class UserService {
         return "redirect:/user";
     }
 
-    public List<User> findAll() {
-        return repository.findAll();
+    public List<User> findAllInstituicao() {
+        return repository.findByDescriptionIsNotNull();
     }
 
     public ModelAndView editView(Long id) {
@@ -69,12 +69,12 @@ public class UserService {
     public String edit(User newUser, BindingResult result, RedirectAttributes redirect) {
         Optional<User> optional = repository.findByEmail(newUser.getEmail());
 
-//        if(result.hasErrors()) return "user-form-update";
-//        newUser.setPassword(
-//                AuthenticationService
-//                        .getPasswordEncoder()
-//                        .encode(newUser.getPassword())
-//        );
+        if(result.hasErrors()) return "user-form-update";
+        newUser.setPassword(
+                AuthenticationService
+                        .getPasswordEncoder()
+                        .encode(newUser.getPassword())
+        );
 
         User user = optional.get();
         user.setName(newUser.getName());

@@ -3,6 +3,10 @@
 <head th:include="_template :: head"></head>
 <body>
 
+    <header>
+        <h1><a href="/">DoeAqui</a></h1>
+    </header>
+
     <form th:action="@{/login}" method="post" >
         <label class="hide" for="email">Email</label>
         <input type="email" id="email" name="username" placeholder="e-mail">

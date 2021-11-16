@@ -3,6 +3,10 @@
 <head th:include="_template :: head"></head>
 <body>
 
+    <header>
+        <h1><a href="/">DoeAqui</a></h1>
+    </header>
+
     <form th:action="@{/user}" method="post" th:object="${user}">
         <label for="name" class="hide">Nome</label>
         <input
@@ -39,13 +43,14 @@
         />
         <span class="error"  th:errors="*{password}"></span>
 
-        <label for="description" class="hide" id="descriptionLabel">Descrição</label>
+        <label for="description" class="hide" id="descriptionLabel" style="display: none;">Descrição</label>
         <textarea
                 name="description"
                 placeholder="descrição"
                 id="description"
                 th:field="*{description}"
                 th:classappend="${#fields.hasErrors('description')}?invalid"
+                style="display: none;"
         />
         <span class="error"  th:errors="*{description}"></span>
 

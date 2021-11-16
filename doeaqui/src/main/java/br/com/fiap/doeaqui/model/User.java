@@ -1,16 +1,19 @@
 package br.com.fiap.doeaqui.model;
 
 import lombok.Data;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.Collection;
 
 @Data
 @Entity
 @Table(name = "TB_DOE_USER")
 @SequenceGenerator(name="user", sequenceName = "SQ_TB_DOE_USUARIO", allocationSize = 1)
-public class User {
+public class User implements UserDetails {
 
     //geral
     @Id
@@ -27,11 +30,43 @@ public class User {
     private String email;
 
     @Size(min = 8, message = "A senha deve conter pelo menos 8 caracteres")
-    @Column(name = "NM_SENHA", nullable = false, length = 20)
+    @Column(name = "NM_SENHA", nullable = false, length = 100)
     private String password;
 
     //instituição
     @Column(name = "DS_USER")
     private String description; //informações da instituição e informações sobre como doar para ela
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Collection<Role> roles;
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return this.roles;
+    }
+
+    @Override
+    public String getUsername() {
+        return this.email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 }

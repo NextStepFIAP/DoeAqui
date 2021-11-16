@@ -21,12 +21,12 @@ public class UserController {
     @Autowired
     private UserService service;
 
-    @GetMapping
+    @GetMapping("/instituicao")
     public ModelAndView index() {
         return service.index();
     }
 
-    @RequestMapping("new")
+    @RequestMapping("/new")
     public String create(User user) {
         return service.create();
     }

@@ -14,8 +14,11 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
+import java.util.List;
 import java.util.Optional;
 
+@RestController
+@RequestMapping("/api/user")
 public class ApiUserController {
 
     @Autowired
@@ -23,13 +26,16 @@ public class ApiUserController {
 
     @GetMapping
     @Cacheable("login")
-    public Page<User> index(@RequestParam(required = false) String title, @PageableDefault(size = 20) Pageable pageable) {
-        if(title == null){
-            return repository.findAll(pageable);
-
-        }
-        return repository.findByNameLike("%" + title + "%", pageable);
+    public List<User> findUsuario() {
+        return repository.findByDescriptionIsNull();
     }
+
+    @GetMapping("/instituicao")
+    @Cacheable("login")
+    public List<User> findInstituicao() {
+        return repository.findByDescriptionIsNotNull();
+    }
+
 
     @PostMapping
     @CacheEvict(value="login", allEntries = true)
