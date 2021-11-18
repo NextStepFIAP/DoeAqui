@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
 <head th:include="_template :: head"></head>
+<link rel="stylesheet" type="text/css" th:href="@{/styles/user-form.css}">
 <body>
 
     <header>
-        <h1><a href="/">DoeAqui</a></h1>
+        <div class="header__logo">
+            <img class="logo" th:src="@{/assets/logo.png}">
+            <h1><a href="/">DoeAqui</a></h1>
+        </div>
     </header>
 
-    <form th:action="@{/user}" method="post" th:object="${user}">
+    <div class="switcherCadastroContainer">
+        <input id="btnTipoCadastro" onclick="cadastroInstituicao()" value="Ir para Cadastro de Instituição" type="button"/>
+    </div>
+
+    <form class="form-container" th:action="@{/user}" method="post" th:object="${user}">
         <label for="name" class="hide">Nome</label>
         <input
                 type="text"
@@ -20,7 +28,7 @@
         />
         <span class="error" th:errors="*{name}"></span>
 
-        <label for="email" class="hide">E-mail</label>
+        <label for="email" class="hide">E-mail:</label>
         <input
                 type="email"
                 name="email"
@@ -32,7 +40,7 @@
         />
         <span class="error"  th:errors="*{email}"></span>
 
-        <label for="password" class="hide">Senha</label>
+        <label for="password" class="hide">Senha:</label>
         <input
                 type="password"
                 name="password"
@@ -43,7 +51,7 @@
         />
         <span class="error"  th:errors="*{password}"></span>
 
-        <label for="description" class="hide" id="descriptionLabel" style="display: none;">Descrição</label>
+        <label for="description" class="hide" id="descriptionLabel" style="display: none;">Descrição:</label>
         <textarea
                 name="description"
                 placeholder="descrição"
@@ -56,15 +64,11 @@
 
 
         <div class="action-buttons">
-            <a href="/" class="button">Cancelar</a>
-            <button class="button primary">Salvar</button>
+            <button class="button primary cta cta-signup">Salvar</button>
+            <a href="/" class="button btn-cancel">Cancelar</a>
         </div>
 
     </form>
-
-    <div>
-        <input id="btnTipoCadastro" onclick="cadastroInstituicao()" value="Cadastro de Instituição" type="button"/>
-    </div>
 
     <script>
         function cadastroInstituicao(){
@@ -78,10 +82,10 @@
                 descText.style.display = "none";
                 descLabel.style.display = "none";
             }
-            if (botao.value==="Cadastro de Instituição"){
-                botao.value = "Cadastro de Usuário";
+            if (botao.value==="Ir para Cadastro de Instituição"){
+                botao.value = "Ir para cadastro de Usuário";
             }else{
-                botao.value = "Cadastro de Instituição";
+                botao.value = "Ir para Cadastro de Instituição";
             }
         }
     </script>

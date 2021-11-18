@@ -1,0 +1,39 @@
+.form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: left;
+    background: #f5f5f5;
+    border-radius: 4px;
+    min-height: 200px;
+    height: auto;
+    box-shadow: 0px 0px 5px 3px #00000020;
+}
+
+.form-container input{
+    margin-bottom: 20px;
+    border: none;
+    padding: 8px 16px;
+}
+
+.cta-login{
+    background: #ffa48d;
+    border: none;
+    padding: 10px 20px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+    text=shadow: 1;
+    text-shadow: 1px 1px 3px #00000099;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cta-login:hover{
+    background: #fd3c84;
+    transition: 0.3s;
+}

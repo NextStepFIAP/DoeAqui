@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
 <head th:include="_template :: head"></head>
+
+<link rel="stylesheet" type="text/css" th:href="@{/styles/home.css}">
+
 <body>
 
     <header>
-        <h1><a href="/">DoeAqui</a></h1>
+        <div class="header__logo">
+            <img class="logo" th:src="@{/assets/logo.png}">
+            <h1><a href="/">DoeAqui</a></h1>
+        </div>
     </header>
 
-    <div>
+    <div class="sign-buttons-container">
         <a href="/user/new">Cadastrar</a>
         <a href="/login">Entrar</a>
     </div>

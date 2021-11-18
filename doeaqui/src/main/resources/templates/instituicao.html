@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
 <head th:include="_template :: head"></head>
+<link rel="stylesheet" type="text/css" th:href="@{/styles/instituicao.css}">
 <body>
     <header th:include="_template :: header"></header>
-    <nav th:include="_template :: menu('instituicao')"></nav>
 
-    <main>
+    <div class="infos-container">
+        <div class="info-user-container">
+
+            <div class="info-user-name">
+                <p>Bem vindo(a), <p th:text="${#authentication.getPrincipal().getName()}"></p>.</p>
+            </div>
+
+            <div class="user-logout-container">
+                <a href="/logout" title="sair">
+                    <p class="material-icons logout">logout</p>
+                </a>
+            </div>
+        </div>
+
+        <nav th:include="_template :: menu('instituicao')"></nav>
+
+    </div>
+
+    <main class="container">
         <div th:each="instituicao : ${users}">
             <div>
-                <h4 th:text="${instituicao.name}"></h4>
+                <h2 th:text="${instituicao.name}"></h2>
                 <p th:text="${instituicao.description}"></p>
             </div>
         </div>
