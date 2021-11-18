@@ -25,3 +25,13 @@
     color: #ffa48d;
     transition: 0.3s;
 }
+
+.info-project-container{
+    width: 80%;
+    margin: 40px auto 0;
+}
+
+.info-project-container h2, .info-project-container h3{
+    border-bottom: 4px solid #fd3c84;
+    display: inline;
+}
