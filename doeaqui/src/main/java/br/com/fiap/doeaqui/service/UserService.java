@@ -1,5 +1,6 @@
 package br.com.fiap.doeaqui.service;
 
+import br.com.fiap.doeaqui.model.Role;
 import br.com.fiap.doeaqui.model.User;
 import br.com.fiap.doeaqui.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -44,7 +46,7 @@ public class UserService {
         );
         System.out.println(user);
 
-//        redirect.addFlashAttribute("message", message.getMessage("newuser.success", null, LocaleContextHolder.getLocale()));
+        redirect.addFlashAttribute("message", message.getMessage("newuser.success", null, LocaleContextHolder.getLocale()));
         repository.save(user);
         return "redirect:/";
     }

@@ -1,6 +1,9 @@
 package br.com.fiap.doeaqui.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -11,6 +14,8 @@ import java.util.Collection;
 
 @Data
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "TB_DOE_USER")
 @SequenceGenerator(name="user", sequenceName = "SQ_TB_DOE_USUARIO", allocationSize = 1)
 public class User implements UserDetails {
@@ -68,5 +73,31 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public User(Long id, String name, String email, String password, String description) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.description = description;
+    }
+
+    public User(Long id, String name, String email, String password) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+    }
+
+    public User(String name, String email, String password, String description) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.description = description;
+    }
+
+    public User(Long id) {
+        this.id = id;
     }
 }
