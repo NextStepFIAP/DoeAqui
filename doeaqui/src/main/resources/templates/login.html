@@ -18,6 +18,7 @@
         <label class="hide"  for="password">Senha:</label>
         <input id="password" name="password" type="password" placeholder="senha">
 
+        <span th:if="${param.error}" class="alert error">Login inválido</span>
         <button class="primary cta cta-login">Entrar</button>
     </form>
 

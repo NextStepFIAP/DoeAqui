@@ -16,7 +16,7 @@
     </div>
 
     <form class="form-container" th:action="@{/user}" method="post" th:object="${user}">
-        <label for="name" class="hide">Nome</label>
+        <label for="name" class="hide">Nome: <span class="error" th:errors="*{name}"></span></label>
         <input
                 type="text"
                 name="name"
@@ -26,9 +26,8 @@
                 th:classappend="${#fields.hasErrors('name')}?invalid"
                 autocomplete="off"
         />
-        <span class="error" th:errors="*{name}"></span>
 
-        <label for="email" class="hide">E-mail:</label>
+        <label for="email" class="hide">E-mail: <span class="error"  th:errors="*{email}"></span></label>
         <input
                 type="email"
                 name="email"
@@ -38,7 +37,6 @@
                 th:classappend="${#fields.hasErrors('email')}?invalid"
                 autocomplete="off"
         />
-        <span class="error"  th:errors="*{email}"></span>
 
         <label for="password" class="hide">Senha:</label>
         <input

@@ -24,29 +24,20 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     //Autorização
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        //http.authorizeRequests().anyRequest().permitAll(); //Permite tudo e todos
 
-        //Requisições que são "/user" e que começam com "/task" precisam de autenticação
         http.authorizeRequests()
-//                .antMatchers("/user") //para acessar /user
-//                .hasRole("ADMIN") //somente o ADMIN
-//                .antMatchers("/task/**") //para acessar o /task/qualquerCoisa
-//                .authenticated() 	 //Basta estar logado
                 .anyRequest()
                 .permitAll()
                 .and()
-                .formLogin()
-                .loginPage("/login")
-                .defaultSuccessUrl("/info")
+                    .formLogin()
+                    .loginPage("/login")
+                    .defaultSuccessUrl("/info")
                 .and()
-                .logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/");
-//		.and()
-//			.csrf()
-//			.disable();
-
+                    .logout()
+                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                    .logoutSuccessUrl("/")
+                .and()
+        			.csrf()
+		        	.disable();
     }
-
-
 }

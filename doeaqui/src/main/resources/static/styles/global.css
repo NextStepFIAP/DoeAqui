@@ -20,3 +20,8 @@
     text-decoration: none;
     color: #fd3c84;
 }
+
+.error {
+    color: red;
+    font-weight: 700;
+}
