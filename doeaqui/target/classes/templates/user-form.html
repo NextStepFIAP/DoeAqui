@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head th:include="_template :: head"></head>
+<link rel="stylesheet" type="text/css" th:href="@{/styles/user-form.css}">
+<body>
+
+    <header>
+        <div class="header__logo">
+            <img class="logo" th:src="@{/assets/logo.png}">
+            <h1><a href="/">DoeAqui</a></h1>
+        </div>
+    </header>
+
+    <div class="switcherCadastroContainer">
+        <input id="btnTipoCadastro" onclick="cadastroInstituicao()" value="Ir para Cadastro de Instituição" type="button"/>
+    </div>
+
+    <form class="form-container" th:action="@{/user}" method="post" th:object="${user}">
+        <label for="name" class="hide">Nome: <span class="error" th:errors="*{name}"></span></label>
+        <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="nome"
+                th:field="*{name}"
+                th:classappend="${#fields.hasErrors('name')}?invalid"
+                autocomplete="off"
+        />
+
+        <label for="email" class="hide">E-mail: <span class="error"  th:errors="*{email}"></span></label>
+        <input
+                type="email"
+                name="email"
+                placeholder="e-mail"
+                id="email"
+                th:field="*{email}"
+                th:classappend="${#fields.hasErrors('email')}?invalid"
+                autocomplete="off"
+        />
+
+        <label for="password" class="hide">Senha:</label>
+        <input
+                type="password"
+                name="password"
+                placeholder="senha"
+                id="password"
+                th:field="*{password}"
+                th:classappend="${#fields.hasErrors('password')}?invalid"
+        />
+        <span class="error"  th:errors="*{password}"></span>
+
+        <label for="description" class="hide" id="descriptionLabel" style="display: none;">Descrição:</label>
+        <textarea
+                name="description"
+                placeholder="descrição"
+                id="description"
+                th:field="*{description}"
+                th:classappend="${#fields.hasErrors('description')}?invalid"
+                style="display: none;"
+        />
+        <span class="error"  th:errors="*{description}"></span>
+
+
+        <div class="action-buttons">
+            <button class="button primary cta cta-signup">Salvar</button>
+            <a href="/" class="button btn-cancel">Cancelar</a>
+        </div>
+
+    </form>
+
+    <script>
+        function cadastroInstituicao(){
+            var descText = document.getElementById("description");
+            var descLabel = document.getElementById("descriptionLabel");
+            var botao = document.getElementById("btnTipoCadastro");
+            if(descText.style.display === "none"){
+                descText.style.display = "flex";
+                descLabel.style.display = "flex";
+            }else{
+                descText.style.display = "none";
+                descLabel.style.display = "none";
+            }
+            if (botao.value==="Ir para Cadastro de Instituição"){
+                botao.value = "Ir para cadastro de Usuário";
+            }else{
+                botao.value = "Ir para Cadastro de Instituição";
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+br/com/fiap/doeaqui/model/User.class
+br/com/fiap/doeaqui/service/AuthenticationService.class
+br/com/fiap/doeaqui/controller/InfoController.class
+br/com/fiap/doeaqui/controller/api/ApiUserController.class
+br/com/fiap/doeaqui/service/UserService.class
+br/com/fiap/doeaqui/repository/UserRepository.class
+br/com/fiap/doeaqui/DoeaquiApplication.class
+br/com/fiap/doeaqui/model/Role.class
+br/com/fiap/doeaqui/controller/LoginController.class
+br/com/fiap/doeaqui/config/SwaggerConfig.class
+br/com/fiap/doeaqui/config/SecurityConfiguration.class
+br/com/fiap/doeaqui/controller/UserController.class

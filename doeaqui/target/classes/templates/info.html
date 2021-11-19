@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head th:include="_template :: head"></head>
+<link rel="stylesheet" type="text/css" th:href="@{/styles/info.css}">
+<body>
+    <header th:include="_template :: header"/>
+
+    <div class="infos-container">
+        <div class="info-user-container">
+
+            <div class="info-user-name">
+                <p>Bem vindo(a), <p th:text="${#authentication.getPrincipal().getName()}"></p>.</p>
+            </div>
+
+            <div class="user-logout-container">
+                <a href="/logout" title="sair">
+                    <p class="material-icons logout">logout</p>
+                </a>
+            </div>
+        </div>
+
+        <nav th:include="_template :: menu('info')"></nav>
+
+    </div>
+
+    <div class="container">
+        <h1>Informações da fome</h1>
+
+        <h2>Estado da fome no mundo:</h2>
+        <p>Um estudo publicado pela Organização das Nações Unidas para Agricultura e Alimentação (FAO, na sigla em inglês) no dia 29 de abril de 2016 mostrou que a produção mundial de alimentos é suficiente para suprir a demanda das 7,3 bilhões de pessoas que habitam a Terra. Apesar disso, aproximadamente uma em cada nove dessas pessoas ainda vive a realidade da fome.</p>
+
+        <h2>Mais sobre a fome:</h2>
+        <p>Segundo a FAO, principal organização internacional a tratar do tema da fome, existem diferentes estados da insuficiência alimentar, e todos eles afetam tanto o desenvolvimento daqueles atingidos quanto da sociedade e da economia do país:</p>
+        <ul>
+            <li><b>INSEGURANÇA ALIMENTAR:</b> Situação de quem não tem garantia de acesso a quantidades suficientes de comida saudável e nutritiva para o seu desenvolvimento normal. Causada pela inexistência de comida á disposição, falta de poder aquisitivo para a compra de alimentos ou uso inadequado da comida em casa. Pode ser crônica, temporária ou transitória.</li>
+            <li><b>MÁ NUTRIÇÃO:</b> Condição fisiológica anormal, causando por consumo inadequado de nutrientes. Inclui desnutrição.</li>
+            <li><b>DESNUTRIÇÃO:</b> Condição de absorção deficiente de nutrientes causada por repetidas doenças infecciosas.</li>
+            <li><b>SUBNUTRIÇÃO:</b> Estado de incapacidade em obter comida suficiente para atingir os níveis mínimos de energia necessários para uma vida saudável e ativa.</li>
+            <li><b>FOME:</b> Termo sinônimo de subnutrição crônica, ou seja, quando o estado de subnutrição dura por mais de um ano.</li>
+        </ul>
+
+        <h2>E qual seria o nosso foco para esta problemática ?</h2>
+        <p>Decidimos focar no objetivo 2 "Acabar com a fome". O Brasil ainda é um país com uma desigualdade social muito grande, por isso usaremos a tecnologia como vantagem para manter ao alcance de todos aqueles que querem ajudar e serem ajudados, unindo todos num local sem descriminação.</p>
+
+        </div>
+    </div>
+
+</body>
+</html>

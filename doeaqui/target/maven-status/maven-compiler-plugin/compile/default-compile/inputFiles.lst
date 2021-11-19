@@ -1,0 +1,12 @@
+/home/r3drvm/Documentos/Workspace/Digital Business/Entrega/DoeAqui/doeaqui/src/main/java/br/com/fiap/doeaqui/controller/api/ApiUserController.java
+/home/r3drvm/Documentos/Workspace/Digital Business/Entrega/DoeAqui/doeaqui/src/main/java/br/com/fiap/doeaqui/repository/UserRepository.java
+/home/r3drvm/Documentos/Workspace/Digital Business/Entrega/DoeAqui/doeaqui/src/main/java/br/com/fiap/doeaqui/DoeaquiApplication.java
+/home/r3drvm/Documentos/Workspace/Digital Business/Entrega/DoeAqui/doeaqui/src/main/java/br/com/fiap/doeaqui/controller/InfoController.java
+/home/r3drvm/Documentos/Workspace/Digital Business/Entrega/DoeAqui/doeaqui/src/main/java/br/com/fiap/doeaqui/service/UserService.java
+/home/r3drvm/Documentos/Workspace/Digital Business/Entrega/DoeAqui/doeaqui/src/main/java/br/com/fiap/doeaqui/controller/UserController.java
+/home/r3drvm/Documentos/Workspace/Digital Business/Entrega/DoeAqui/doeaqui/src/main/java/br/com/fiap/doeaqui/config/SwaggerConfig.java
+/home/r3drvm/Documentos/Workspace/Digital Business/Entrega/DoeAqui/doeaqui/src/main/java/br/com/fiap/doeaqui/controller/LoginController.java
+/home/r3drvm/Documentos/Workspace/Digital Business/Entrega/DoeAqui/doeaqui/src/main/java/br/com/fiap/doeaqui/model/User.java
+/home/r3drvm/Documentos/Workspace/Digital Business/Entrega/DoeAqui/doeaqui/src/main/java/br/com/fiap/doeaqui/model/Role.java
+/home/r3drvm/Documentos/Workspace/Digital Business/Entrega/DoeAqui/doeaqui/src/main/java/br/com/fiap/doeaqui/service/AuthenticationService.java
+/home/r3drvm/Documentos/Workspace/Digital Business/Entrega/DoeAqui/doeaqui/src/main/java/br/com/fiap/doeaqui/config/SecurityConfiguration.java
