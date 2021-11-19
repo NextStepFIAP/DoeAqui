@@ -84,4 +84,9 @@ public class ApiUserController {
 
     }
 
+    @GetMapping("/email/{email}")
+    public Optional<User> getByEmail(@PathVariable String email){
+        return repository.findByEmail(email);
+    }
+
 }
